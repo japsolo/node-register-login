@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('partials/head', { pageTitle: 'Registro' }); %>
+<body>
+	<%- include('partials/navbar'); %>
+	
+	<!-- Register-Form -->
+	<div class="container" style="margin-top:30px; margin-bottom: 30px;">
+		<div class="row justify-content-center">
+			<div class="col-md-10">
+				<h2>Formulario de registro</h2>
+				<% if (typeof errors != 'undefined') { %>
+					<ul>
+						<% for (const oneError of errors) { %>
+							<li class="text-danger"><%= oneError.msg %></li>
+						<% } %>
+					</ul>
+				<% } %>
+	
+				<form method="POST" action="/users/register" enctype="multipart/form-data">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label><b>Nombre completo:</b></label>
+								<input 
+									type="text" 
+									name="full_name" 
+									class="form-control 
+									<% if (typeof hasErrorGetMessage != 'undefined') { %>
+										<%= hasErrorGetMessage('full_name', errors) ? 'is-invalid' : 'is-valid' %>
+									<% } %>"
+									value="<%= typeof oldData != 'undefined' ? oldData.full_name : null %>"
+								>
+								<% if (typeof hasErrorGetMessage != 'undefined') { %>
+									<div class="invalid-feedback">
+										<%= hasErrorGetMessage('full_name', errors) %>
+									</div>
+								<% } %>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label><b>Correo electrónico:</b></label>
+								<input 
+									type="text" 
+									name="email" 
+									class="form-control
+									<% if (typeof hasErrorGetMessage != 'undefined') { %>
+										<%= hasErrorGetMessage('email', errors) ? 'is-invalid' : 'is-valid' %>
+									<% } %>"
+									value="<%= typeof oldData != 'undefined' ? oldData.email : null %>"
+								>
+								<% if (typeof hasErrorGetMessage != 'undefined') { %>
+									<div class="invalid-feedback">
+										<%= hasErrorGetMessage('email', errors) %>
+									</div>
+								<% } %>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label><b>Password:</b></label>
+								<input type="password" name="password" 
+									class="form-control
+									<% if (typeof hasErrorGetMessage != 'undefined') { %>
+										<%= hasErrorGetMessage('password', errors) ? 'is-invalid' : null %>
+									<% } %>"
+								>
+								<% if (typeof hasErrorGetMessage != 'undefined') { %>
+									<div class="invalid-feedback">
+										<%= hasErrorGetMessage('password', errors) %>
+									</div>
+								<% } %>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label><b>Repetir Password:</b></label>
+								<input type="password" name="re_password" 
+									class="form-control
+									<% if (typeof hasErrorGetMessage != 'undefined') { %>
+										<%= hasErrorGetMessage('re_password', errors) ? 'is-invalid' : null %>
+									<% } %>"
+								>
+								<% if (typeof hasErrorGetMessage != 'undefined') { %>
+									<div class="invalid-feedback">
+										<%= hasErrorGetMessage('re_password', errors) %>
+									</div>
+								<% } %>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label><b>País de nacimiento:</b></label>
+								<select name="country" 
+									class="form-control
+									<% if (typeof hasErrorGetMessage != 'undefined') { %>
+										<%= hasErrorGetMessage('country', errors) ? 'is-invalid' : 'is-valid' %>
+									<% } %>"
+								>
+									<option value="">Elegí un país</option>
+									<%  
+										let countries = [
+											{code: 'Arg', name: 'Argentina'},
+											{code: 'Bol', name: 'Bolivia'},
+											{code: 'Bra', name: 'Brasil'},
+											{code: 'Col', name: 'Colombia'},
+											{code: 'Chi', name: 'Chile'},
+											{code: 'Ecu', name: 'Ecuador'},
+											{code: 'Par', name: 'Paraguay'},
+											{code: 'Per', name: 'Perú'},
+											{code: 'Uru', name: 'Uruguay'},
+											{code: 'Ven', name: 'Venezuela'},
+										];
+										for (const oneCountry of countries) {
+									%>
+											<option 
+												value="<%= oneCountry.code %>"
+												<%= typeof oldData != 'undefined' && oldData.country == oneCountry.code ? 'selected' : null %>
+											> <%= oneCountry.name %> </option>
+									<% } %>
+								</select>
+								<% if (typeof hasErrorGetMessage != 'undefined') { %>
+									<div class="invalid-feedback">
+										<%= hasErrorGetMessage('country', errors) %>
+									</div>
+								<% } %>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label><b>Imagen de perfil:</b></label>
+								<div class="custom-file">
+									<input type="file" name="avatar"
+										class="custom-file-input
+										<% if (typeof hasErrorGetMessage != 'undefined') { %>
+											<%= hasErrorGetMessage('avatar', errors) ? 'is-invalid' : 'is-valid' %>
+										<% } %>"
+									>
+									<label class="custom-file-label">Choose file...</label>
+									<% if (typeof hasErrorGetMessage != 'undefined') { %>
+										<div class="invalid-feedback">
+											<%= hasErrorGetMessage('avatar', errors) %>
+										</div>
+									<% } %>
+								</div>
+							</div>
+						</div>
+						<div class="col-12">
+							<button type="submit" class="btn btn-primary">Registrarse</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- //Register-Form -->
+	
+	<%- include('partials/footer'); %>
+</body>
+</html>

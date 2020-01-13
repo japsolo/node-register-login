@@ -1,0 +1,20 @@
+[
+ {
+  "id": 1,
+  "full_name": "Javi Herrera",
+  "email": "javi@dh.com",
+  "password": "$2b$10$g1jtuQ/g.nzQ7dW5Dh1/yOvkiv1AFVuVWcx8XRrGY/Kf.G7KtUWf.",
+  "country": "Col",
+  "avatar": "javi-herrera-1578933740389.jpg",
+  "token": "6LrKaZm5jgQq6kvtZfiTZT"
+ },
+ {
+  "id": 2,
+  "full_name": "Lando Cortés",
+  "email": "lando@dh.com",
+  "password": "$2b$10$PbotDfRTNkHquKVBxd.SbuVu/Vg4nNlYY1wzUiwS9/loDWzT6SYh.",
+  "country": "Arg",
+  "avatar": "lando-cortés-1578943568816.png",
+  "token": "XhrxtCBqvEkZdX31YFB5eN"
+ }
+]

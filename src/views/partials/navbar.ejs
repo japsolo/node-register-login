@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<a class="navbar-brand" href="#">Avengers Fucking Site</a>
+
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myOwnNav" aria-controls="myOwnNav"
+		aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div class="collapse navbar-collapse" id="myOwnNav">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">About</a></li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="dropNavBar" role="button" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false">
+					Products
+				</a>
+				<div class="dropdown-menu" aria-labelledby="dropNavBar">
+					<a class="dropdown-item" href="#">Category 01</a>
+					<a class="dropdown-item" href="#">Category 02</a>
+					<a class="dropdown-item" href="#">Category 03</a>
+				</div>
+			</li>
+		</ul>
+		<ul class="navbar-nav ml-auto align-items-center">
+			<% if (userLogged != null) { %>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="dropUser" role="button" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false">
+						<img src="/images/avatars/<%= userLogged.avatar %>" width="40" style="border-radius: 100%;">
+						Hi <%= userLogged.full_name %>
+					</a>
+					<div class="dropdown-menu" aria-labelledby="dropUser" style="left: auto; right: 0;">
+						<a class="dropdown-item" href="/users/profile">My profile</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="/users/logout">Logout</a>
+					</div>
+				</li>
+			<% } else { %>
+				<li class="nav-item"><a class="nav-link" href="/users/register">Register</a></li>
+				<li class="nav-item"><a class="nav-link" href="/users/login">Login</a></li>
+			<% } %>
+		</ul>
+	</div>
+</nav>
