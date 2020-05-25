@@ -16,5 +16,59 @@
   "country": "Arg",
   "avatar": "lando-cortés-1578943568816.png",
   "token": "XhrxtCBqvEkZdX31YFB5eN"
+ },
+ {
+  "id": 3,
+  "full_name": "Pedro Pérez",
+  "email": "pedro@dh.com",
+  "password": "$2b$10$qwX6Qi8BB6dsryegUNnWsu3SSKxkgNIcW/daSi5kjdwr6kRZAlotW",
+  "country": "Col",
+  "avatar": "pedro-pérez-1578955743148.jpg",
+  "token": "AKMXu1T8QRVTx7pV7aCcmY"
+ },
+ {
+  "id": 4,
+  "full_name": "Javier H",
+  "email": "javier2@digitalhouse.com",
+  "password": "$2b$10$Cfa3qYy8glY8ERWbLgH.r.JGlQndobYnLmT34m43x/epSuPPW/tRK",
+  "country": "Bol",
+  "avatar": "javier-h-1581887882149.jpg",
+  "token": "SAES3gjCZgc1JKHR3sgob1"
+ },
+ {
+  "id": 5,
+  "full_name": "Javi Herrera",
+  "email": "javi@dh.com",
+  "password": "$2b$10$IXbnMDAREC.VjTLaYl4XpeTFFVgetAZRH7W1gf0Purbfj4dFPDqpG",
+  "country": "Col",
+  "avatar": "javi-herrera-1581887961686.jpg",
+  "token": "XvEB175Cm2CREGfktSHQ2A"
+ },
+ {
+  "id": 6,
+  "full_name": "Pepe Sarlanga",
+  "email": "pepe@dh.com",
+  "password": "$2b$10$.IAdJwP4P6za/hwFJcHgPOOF2qME.U3tKEbOlAfsJqWgPGfqbMslK",
+  "country": "Arg",
+  "avatar": "pepe-sarlanga-1585176000321.jpg",
+  "token": "7Bv3DQkFUFi1jwhyRmP3Nc"
+ },
+ {
+  "id": 7,
+  "full_name": "Javi Herrera",
+  "email": "javier2@digitalhouse.com",
+  "password": "$2b$10$AjgJcywTRyz2bEMzASZ75ucDegycafsLK5/52k0j3I7qM8Is3k08u",
+  "country": "Chi",
+  "avatar": "javi-herrera-1585176189248.jpg",
+  "token": "2Nqbq8VLYu9HPWfbQrpnqP"
+ },
+ {
+  "id": 8,
+  "full_name": "Javi Herrera",
+  "email": "javi@dh.com",
+  "password": "$2b$10$17aYbfhQzCCkGbMY3wFBZuLyyHmbNWX6SHtsxFgtn5b5JoTSYLxWa",
+  "country": "Uru",
+  "avatar": "javi-herrera-1585176332671.jpg",
+  "token": "RiZLVRmBAf1CXFNxvvnPDB"
  }
 ]

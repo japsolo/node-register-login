@@ -7,9 +7,9 @@ const userFunctions = require('../helpers/userHelperFunctions');
 
 const hasErrorGetMessage = (field, errors) => {
 	if(typeof errors != 'undefined') {
-		for (const oneError of errors) {
-			if (oneError.param == field) {
-				return oneError.msg;
+		for (const oneError in errors) {
+			if (oneError == field) {
+				return errors[oneError].msg;
 			}
 		}
 	}
@@ -25,14 +25,12 @@ const controller = {
 	},
 	store: (req, res) => {
 		const errors = validationResult(req);
-
-		// console.log(errors.errors);
 		
 		if (!errors.isEmpty()) {
 			let userLogged = req.session.userId ? userFunctions.getUserById(req.session.userId) : null;
-			res.render('usersRegisterForm', { 
+			return res.render('usersRegisterForm', { 
 				userLogged, 
-				errors: errors.errors,
+				errors: errors.mapped(),
 				oldData: req.body,
 				hasErrorGetMessage
 			});
@@ -103,7 +101,7 @@ const controller = {
 		// Destruir la sesión
 		req.session.destroy();
 		// Borrar la cookie
-		res.cookie('userCookie', null, { maxAge: -1 });
+		res.clearCookie('userCookie');
 		// Redireccionar
 		return res.redirect('/');
 	}

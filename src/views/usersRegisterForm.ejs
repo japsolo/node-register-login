@@ -11,8 +11,8 @@
 				<h2>Formulario de registro</h2>
 				<% if (typeof errors != 'undefined') { %>
 					<ul>
-						<% for (const oneError of errors) { %>
-							<li class="text-danger"><%= oneError.msg %></li>
+						<% for (const oneError in errors) { %>
+							<li class="text-danger"><%= errors[oneError].msg %></li>
 						<% } %>
 					</ul>
 				<% } %>
@@ -31,9 +31,19 @@
 									<% } %>"
 									value="<%= typeof oldData != 'undefined' ? oldData.full_name : null %>"
 								>
+								<!-- Trayendo el error como Función -->
 								<% if (typeof hasErrorGetMessage != 'undefined') { %>
 									<div class="invalid-feedback">
 										<%= hasErrorGetMessage('full_name', errors) %>
+										<i> - cómo función</i>
+									</div>
+								<% } %>
+
+								<!-- Trayendo el error como Objeto Literal -->
+								<% if (typeof errors != 'undefined') { %>
+									<div class="invalid-feedback">
+										<%= errors.full_name && errors.full_name.msg %>
+										<i> - cómo objeto literal</i>
 									</div>
 								<% } %>
 							</div>
@@ -130,6 +140,7 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label><b>Imagen de perfil:</b></label>
+								<img src="" alt="" id="imgPreview">
 								<div class="custom-file">
 									<input type="file" name="avatar"
 										class="custom-file-input
@@ -140,7 +151,7 @@
 									<label class="custom-file-label">Choose file...</label>
 									<% if (typeof hasErrorGetMessage != 'undefined') { %>
 										<div class="invalid-feedback">
-											<%= hasErrorGetMessage('avatar', errors) %>
+											<%= hasErrorGetMessage('avatar', errors); %>
 										</div>
 									<% } %>
 								</div>
@@ -157,5 +168,15 @@
 	<!-- //Register-Form -->
 	
 	<%- include('partials/footer'); %>
+	<script>
+		let imgPreview = document.querySelector('#imgPreview');
+		let fileInput = document.querySelector('[name=avatar]');
+
+		fileInput.addEventListener('change', (e) => {
+			let reader = new FileReader();
+			reader.onload = (e) => imgPreview.src = e.target.result;
+			reader.readAsDataURL(e.target.files[0]);
+		});
+	</script>
 </body>
 </html>
